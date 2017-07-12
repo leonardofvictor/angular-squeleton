@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<h2>Grupos: Lugbrz</h2>
+<ul class="heroes">
+    <li *ngFor="let group of groups"
+        [class.selected]="group === selectedGroup"
+        (click)="onSelect(group)">
+        <span class="badge">{{group.id}}</span> {{group.name}}
+    </li>
+</ul>
+<div *ngIf="selectedGroup">
+    <h2>{{selectedGroup.name}} details!</h2>
+    <div><label>id: </label>{{selectedGroup.id}}</div>
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="selectedGroup.name" placeholder="name"/>
+    </div>
+</div>
