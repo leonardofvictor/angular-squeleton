@@ -19,7 +19,7 @@ const HEROES: Hero[] = [
 ];
 
 @Component({
-  selector: 'gerenciador-acessos',
+  selector: 'app-container',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -27,7 +27,7 @@ const HEROES: Hero[] = [
 
 
 export class AppComponent {
-  title = 'Gerenciador de Acessos';
+  title = 'Lista de Herois';
   heroes = HEROES;
   selectedHero: Hero;
 

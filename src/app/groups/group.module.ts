@@ -1,19 +1,15 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import {GroupComponent} from './group.component';
-
+import { GroupComponent} from './group.component';
+import { GroupService } from './group.service';
+import {GroupRoutingModule} from './group-routing.module';
 
 @NgModule({
-    declarations: [
-        GroupComponent
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule
-    ],
-    providers: [],
-    bootstrap: [GroupComponent]
+    imports: [CommonModule, FormsModule, GroupRoutingModule],
+    declarations: [GroupComponent],
+    providers: [GroupService]
 })
-export class GroupModule { }
+
+export class GroupModule {}

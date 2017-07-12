@@ -15,3 +15,6 @@
         <input [(ngModel)]="selectedGroup.name" placeholder="name"/>
     </div>
 </div>
+<div *ngIf="group">
+    <h2>{{group}} details!</h2>
+</div>

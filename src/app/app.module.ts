@@ -3,18 +3,19 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {GroupsListComponent} from './groups/group.component';
+import {GroupModule} from './groups/group.module';
+import {ServiceModule} from './services/service.module';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
-  declarations: [
-   AppComponent,
-   GroupsListComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    GroupModule,
+    ServiceModule,
+    AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent,GroupsListComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
