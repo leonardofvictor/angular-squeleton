@@ -6,10 +6,13 @@ import { GroupComponent} from './group.component';
 import { GroupService } from './group.service';
 import {GroupRoutingModule} from './group-routing.module';
 
+import {DomainDropdownComponent} from './../domains/domain-dropdown.component';
+import {DomainService} from '../domains/domain.service';
+
 @NgModule({
     imports: [CommonModule, FormsModule, GroupRoutingModule],
-    declarations: [GroupComponent],
-    providers: [GroupService]
+    declarations: [GroupComponent, DomainDropdownComponent],
+    providers: [GroupService, DomainService]
 })
 
 export class GroupModule {}

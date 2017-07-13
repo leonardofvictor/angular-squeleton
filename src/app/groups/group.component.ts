@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GroupService } from './group.service';
+
 export class Group {
     id: number;
     name: string;
@@ -13,6 +14,7 @@ const GROUPS: Group[] = [
     templateUrl: './group.component.html',
     styleUrls: ['./group.component.css']
 })
+
 export class GroupComponent {
     title = 'Grupos de Acesso';
     groups = GROUPS;
