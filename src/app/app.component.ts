@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 export class Hero {
   id: number;
@@ -26,14 +26,11 @@ const HEROES: Hero[] = [
 
 
 
-export class AppComponent {
-  title = 'Lista de Herois';
-  heroes = HEROES;
-  selectedHero: Hero;
+export class AppComponent implements OnInit {
+  title = 'Acessos';
+  constructor() {}
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
+  ngOnInit(): void {}
 }
 
 

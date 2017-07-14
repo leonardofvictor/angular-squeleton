@@ -1,13 +1,7 @@
-import { Component } from '@angular/core';
-import { GroupService } from './group.service';
+import {Component, OnInit} from '@angular/core';
 
-export class Group {
-    id: number;
-    name: string;
-}
-
-const GROUPS: Group[] = [
-];
+import {Group} from './group';
+import {GroupService} from './group.service';
 
 @Component({
     selector: 'app-group',
@@ -15,18 +9,20 @@ const GROUPS: Group[] = [
     styleUrls: ['./group.component.css']
 })
 
-export class GroupComponent {
+export class GroupComponent implements OnInit {
     title = 'Grupos de Acesso';
-    groups = GROUPS;
-    selectedGroup: Group;
-    group = '';
+    groups: Group[];
 
-    constructor(groupService: GroupService) {
-        this.group = groupService.name;
+    constructor(private groupService: GroupService) {
     }
 
-
-    onSelect(group: Group): void {
-        this.selectedGroup = group;
+    getList(): void {
+        this.groupService.getGroups().then(groups => this.groups = groups);
     }
+
+    ngOnInit(): void {
+        this.getList();
+        console.log(this.groups);
+    }
+
 }
