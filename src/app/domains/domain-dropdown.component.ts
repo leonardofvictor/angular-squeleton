@@ -15,13 +15,10 @@ export class DomainDropdownComponent implements OnInit {
 
    domains: Domain[];
 
-    constructor(private domainService: DomainService) { }
+    constructor(private domainService: DomainService) {}
 
     getDomains(): void {
         this.domainService.getDomains().then(domains => this.domains = domains);
     }
-    ngOnInit(): void {
-        this.getDomains();
-        console.log(this.domains);
-    }
+    ngOnInit(): void { this.getDomains(); }
 }

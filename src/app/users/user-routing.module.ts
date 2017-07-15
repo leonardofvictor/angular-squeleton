@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {GroupComponent} from './group.component';
+import {UserComponent} from './user.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: 'groups/:domain/:page', component: GroupComponent }
+        { path: 'users/:group/:page', component: UserComponent }
     ])],
     exports: [RouterModule]
 })
-export class GroupRoutingModule {}
+export class UserRoutingModule {}

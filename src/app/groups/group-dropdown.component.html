@@ -6,8 +6,8 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <ul>
-            <li *ngFor="let domain of domains">
-               <a [routerLink]="['/groups', domain.name, 1]">{{ domain.name }}</a>
+            <li *ngFor="let group of groups">
+               <a [routerLink]="['/users', group.name, 1]">{{ group.name }}</a>
             </li>
         </ul>
     </div>

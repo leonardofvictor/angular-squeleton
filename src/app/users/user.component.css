@@ -2,13 +2,13 @@
     background-color: #CFD8DC !important;
     color: white;
 }
-.groups {
+.users {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
     width: auto;
 }
-.groups li {
+.users li {
     cursor: pointer;
     position: relative;
     left: 0;
@@ -18,20 +18,20 @@
     height: 3em;
     border-radius: 4px;
 }
-.groups li.selected:hover {
+.users li.selected:hover {
     background-color: #BBD8DC !important;
     color: white;
 }
-.groups li:hover {
+.users li:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
 }
-.groups .text {
+.users .text {
     position: relative;
     top: -3px;
 }
-.groups .badge {
+.users .badge {
     display: inline-block;
     font-size: small;
     color: white;
