@@ -1,50 +1,66 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Gerenciador de Acessos</a>
+    <button class="navbar-toggler navbar-toggler-right"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Gerenciador de Acessos</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"
-           routerLink="group"
-           routerLinkActive="active"
-           data-toggle="dropdown"
-           aria-haspopup="true"
-           aria-expanded="false">
-          Grupos
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Listar</a>
-          <a class="dropdown-item" href="#">Vincular Serviços</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"
-           routerLink="service"
-           routerLinkActive="active"
-           data-toggle="dropdown"
-           aria-haspopup="true"
-           aria-expanded="false">
-          Serviços
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Listar</a>
-          <a class="dropdown-item" href="#">Adicionar</a>
-        </div>
-      </li>
-    </ul>
-    <!--<form class="form-inline my-2 my-lg-0">-->
-      <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
-      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-    <!--</form>-->
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   routerLink="groups"
+                   routerLinkActive="active"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    Grupos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-titem"
+                       [routerLink]="['/groups', 'lugbrz', 1]"
+                       routerLinkActive="active"
+                       data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        Listar</a>
+                    <a class="dropdown-item" href="#">Vincular Serviços</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   routerLink="services"
+                   routerLinkActive="active"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    Serviços
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Listar</a>
+                    <a class="dropdown-item" href="#">Adicionar</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   routerLink="users"
+                   routerLinkActive="active"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    Usuários
+                </a></li>
+        </ul>
+        <!--<form class="form-inline my-2 my-lg-0">-->
+        <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+        <!--</form>-->
+    </div>
 </nav>
 <router-outlet></router-outlet>
+<app-core></app-core>

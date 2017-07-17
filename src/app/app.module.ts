@@ -4,22 +4,25 @@ import {HttpModule, JsonpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {GroupModule} from './groups/group.module';
-import {ServiceModule} from './services/service.module';
 import {AppRoutingModule} from './app-routing.module';
-import {UserModule} from './users/user.module';
+import {CoreModule} from './core/core.module';
+import {CoreComponent} from './core/core.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+
 
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent, CoreComponent
+    ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         JsonpModule,
-        GroupModule,
-        ServiceModule,
-        UserModule,
+        CoreModule,
+        BsDropdownModule,
         AppRoutingModule
     ],
     bootstrap: [AppComponent]

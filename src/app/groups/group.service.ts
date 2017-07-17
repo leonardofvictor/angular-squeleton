@@ -9,12 +9,18 @@ import {GroupList} from './group-list';
 @Injectable()
 export class GroupService {
 
-    private url = 'http://localhost/gerenciador-acessos/public/groups/list';
+    private url = 'http://localhost/gerenciador-acessos/public/groups';
 
     constructor(private http: Http) { }
 
     public getGroups(domain: string, page: number): Promise<GroupList[]> {
-        return this.http.get(`${this.url}/${domain}?page=${page}`)
+        return this.http.get(`${this.url}/list/${domain}?page=${page}`)
+            .toPromise()
+            .then(response => response.json().content as GroupList[])
+            .catch(this.handleError);
+    }
+    public getList(): Promise<GroupList[]> {
+        return this.http.get(`${this.url}`)
             .toPromise()
             .then(response => response.json().content as GroupList[])
             .catch(this.handleError);

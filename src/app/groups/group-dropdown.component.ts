@@ -2,7 +2,6 @@
 import {Component} from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import {Group} from './group';
 import {GroupService} from './group.service';
 
 @Component({
@@ -13,12 +12,12 @@ import {GroupService} from './group.service';
 
 export class GroupDropdownComponent implements OnInit {
 
-   groups: Group[];
+   list: any[];
 
     constructor(private groupService: GroupService) {}
 
     getGroups(): void {
-        //this.groupService.getGroups().then(groups => this.groups = groups);
+        this.groupService.getList().then(groups => this.list = groups);
     }
     ngOnInit(): void { this.getGroups(); }
 }
