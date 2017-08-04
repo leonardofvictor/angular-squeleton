@@ -1,0 +1,100 @@
+
+<div *ngIf="servlist !== null">
+  <ng-template #nextdisabled>
+    <li class="disabled page-item"><a class="page-link">Próxima</a></li>
+  </ng-template>
+  <ng-template #prevdisabled>
+    <li class="disabled page-item"><a class="page-link">Anterior</a></li>
+  </ng-template>
+  <nav aria-label="Page navigation" class="offset-3">
+    <ul class="pagination">
+      <li *ngIf="servlist.current_page > 1" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, 1]">Início</a>
+      </li>
+      <li *ngIf="servlist.current_page > 1; else prevdisabled" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, (servlist.current_page - 1)]">Anterior</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, servlist.current_page]">
+          {{servlist.current_page}}
+        </a>
+      </li>
+      <li *ngIf="servlist.current_page+1  <= servlist.last_page" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, servlist.current_page+1]">
+          {{servlist.current_page +1}}
+        </a>
+      </li>
+      <li *ngIf="servlist.current_page+2  <= servlist.last_page" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, servlist.current_page+2]">
+          {{servlist.current_page +2}}
+        </a>
+      </li>
+      <li *ngIf="servlist.current_page+2 < servlist.last_page; else nextdisabled" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, (servlist.current_page + 1)]">Próxima</a>
+      </li>
+      <li *ngIf="servlist.current_page+2 < servlist.last_page" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, (servlist.last_page)]">Fim</a>
+      </li>
+    </ul>
+  </nav>
+  <table class="table">
+    <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Visualizar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of servlist.data">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.first_name}} {{user.last_name}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <a [routerLink]="['/users/details', user.id]">
+          <span class="fa fa-eye" aria-hidden="true"></span>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <ng-template #nextdisabled>
+    <li class="disabled page-item"><a class="page-link">Próxima</a></li>
+  </ng-template>
+  <ng-template #prevdisabled>
+    <li class="disabled page-item"><a class="page-link">Anterior</a></li>
+  </ng-template>
+  <nav aria-label="Page navigation" class="offset-3">
+    <ul class="pagination">
+      <li *ngIf="servlist.current_page > 1" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, 1]">Início</a>
+      </li>
+      <li *ngIf="servlist.current_page > 1; else prevdisabled" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, (servlist.current_page - 1)]">Anterior</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, servlist.current_page]">
+          {{servlist.current_page}}
+        </a>
+      </li>
+      <li *ngIf="servlist.current_page+1  <= servlist.last_page" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, servlist.current_page+1]">
+          {{servlist.current_page +1}}
+        </a>
+      </li>
+      <li *ngIf="servlist.current_page+2  <= servlist.last_page" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, servlist.current_page+2]">
+          {{servlist.current_page +2}}
+        </a>
+      </li>
+      <li *ngIf="servlist.current_page+2 < servlist.last_page; else nextdisabled" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, (servlist.current_page + 1)]">Próxima</a>
+      </li>
+      <li *ngIf="servlist.current_page+2 < servlist.last_page" class="page-item">
+        <a class="page-link" [routerLink]="['/services', group, (servlist.last_page)]">Fim</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+

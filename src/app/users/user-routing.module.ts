@@ -7,7 +7,7 @@ import {ListComponent} from './list/list.component';
 @NgModule({
     imports: [RouterModule.forChild([
         { path: 'users', component: UserComponent },
-        { path: 'users/list/:group/:page', component: ListComponent},
+        { path: 'users/list/:page', component: ListComponent},
         { path: 'users/details/:id', component: UserDetailsComponent }
     ])],
     exports: [RouterModule]

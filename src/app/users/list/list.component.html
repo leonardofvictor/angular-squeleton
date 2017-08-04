@@ -1,6 +1,6 @@
 <h2>{{baseTitle}}</h2>
-<app-group-list></app-group-list>
-<div *ngIf="userlist !== null">
+<app-search></app-search>
+<div *ngIf="userlist !== null && user == null">
   <ng-template #nextdisabled>
     <li class="disabled page-item"><a class="page-link">Próxima</a></li>
   </ng-template>
@@ -10,31 +10,31 @@
   <nav aria-label="Page navigation" class="offset-3">
     <ul class="pagination">
       <li *ngIf="userlist.current_page > 1" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, 1]">Início</a>
+        <a class="page-link" [routerLink]="['/users/list', 1]">Início</a>
       </li>
       <li *ngIf="userlist.current_page > 1; else prevdisabled" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, (userlist.current_page - 1)]">Anterior</a>
+        <a class="page-link" [routerLink]="['/users/list', (userlist.current_page - 1)]">Anterior</a>
       </li>
       <li class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, userlist.current_page]">
+        <a class="page-link" [routerLink]="['/users/list', userlist.current_page]">
           {{userlist.current_page}}
         </a>
       </li>
       <li *ngIf="userlist.current_page+1  <= userlist.last_page" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, userlist.current_page+1]">
+        <a class="page-link" [routerLink]="['/users/list', userlist.current_page+1]">
           {{userlist.current_page +1}}
         </a>
       </li>
       <li *ngIf="userlist.current_page+2  <= userlist.last_page" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, userlist.current_page+2]">
+        <a class="page-link" [routerLink]="['/users/list', userlist.current_page+2]">
           {{userlist.current_page +2}}
         </a>
       </li>
       <li *ngIf="userlist.current_page+2 < userlist.last_page; else nextdisabled" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, (userlist.current_page + 1)]">Próxima</a>
+        <a class="page-link" [routerLink]="['/users/list', (userlist.current_page + 1)]">Próxima</a>
       </li>
       <li *ngIf="userlist.current_page+2 < userlist.last_page" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, (userlist.last_page)]">Fim</a>
+        <a class="page-link" [routerLink]="['/users/list', (userlist.last_page)]">Fim</a>
       </li>
     </ul>
   </nav>
@@ -44,6 +44,7 @@
       <th>#</th>
       <th>Nome</th>
       <th>Email</th>
+      <th>Login</th>
       <th>Visualizar</th>
     </tr>
     </thead>
@@ -52,8 +53,9 @@
       <th scope="row">{{user.id}}</th>
       <td>{{user.first_name}} {{user.last_name}}</td>
       <td>{{user.email}}</td>
+      <td>{{user.login}}</td>
       <td>
-        <a [routerLink]="['/users/details', user.id]">
+        <a [routerLink]="['/users/list/details', user.id]">
           <span class="fa fa-eye" aria-hidden="true"></span>
         </a>
       </td>
@@ -69,33 +71,34 @@
   <nav aria-label="Page navigation" class="offset-3">
     <ul class="pagination">
       <li *ngIf="userlist.current_page > 1" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, 1]">Início</a>
+        <a class="page-link" [routerLink]="['/users/list', 1]">Início</a>
       </li>
       <li *ngIf="userlist.current_page > 1; else prevdisabled" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, (userlist.current_page - 1)]">Anterior</a>
+        <a class="page-link" [routerLink]="['/users/list', (userlist.current_page - 1)]">Anterior</a>
       </li>
       <li class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, userlist.current_page]">
+        <a class="page-link" [routerLink]="['/users/list', userlist.current_page]">
           {{userlist.current_page}}
         </a>
       </li>
       <li *ngIf="userlist.current_page+1  <= userlist.last_page" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, userlist.current_page+1]">
+        <a class="page-link" [routerLink]="['/users/list', userlist.current_page+1]">
           {{userlist.current_page +1}}
         </a>
       </li>
       <li *ngIf="userlist.current_page+2  <= userlist.last_page" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, userlist.current_page+2]">
+        <a class="page-link" [routerLink]="['/users/list', userlist.current_page+2]">
           {{userlist.current_page +2}}
         </a>
       </li>
       <li *ngIf="userlist.current_page+2 < userlist.last_page; else nextdisabled" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, (userlist.current_page + 1)]">Próxima</a>
+        <a class="page-link" [routerLink]="['/users/list', (userlist.current_page + 1)]">Próxima</a>
       </li>
       <li *ngIf="userlist.current_page+2 < userlist.last_page" class="page-item">
-        <a class="page-link" [routerLink]="['/users', group, (userlist.last_page)]">Fim</a>
+        <a class="page-link" [routerLink]="['/users/list', (userlist.last_page)]">Fim</a>
       </li>
     </ul>
   </nav>
 </div>
+
 

@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {CoreModule} from './core/core.module';
 import {CoreComponent} from './core/core.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 
 
@@ -22,7 +23,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
         HttpModule,
         JsonpModule,
         CoreModule,
-        BsDropdownModule,
+        BsDropdownModule.forRoot(),
+        TypeaheadModule.forRoot(),
         AppRoutingModule
     ],
     bootstrap: [AppComponent]

@@ -14,13 +14,29 @@ export class UserService {
 
     constructor(private http: Http) { }
 
-    public getUsers(group: number, page: number): Promise<UserList[]> {
+    public getUsersByGroup(group: number, page: number): Promise<UserList[]> {
         return this.http.get(`${this.url}/groups/users/${group}?page=${page}`)
             .toPromise()
             .then(response => response.json().content as UserList[])
             .catch(this.handleError);
     }
 
+    public getUsers(page: number): Promise<UserList[]> {
+        if ( page == null ) {
+            page = 1;
+        }
+        return this.http.get(`${this.url}/users/list?page=${page}`)
+            .toPromise()
+            .then(response => response.json().content as UserList[])
+            .catch(this.handleError);
+    }
+    public getList(): Promise<UserList[]> {
+
+        return this.http.get(`${this.url}/users/dropdown`)
+            .toPromise()
+            .then(response => response.json().content as UserList[])
+            .catch(this.handleError);
+    }
     public getDetails(id: number): Promise<UserDetails[]> {
         return this.http.get(`${this.url}/users/show/${id}`)
             .toPromise()

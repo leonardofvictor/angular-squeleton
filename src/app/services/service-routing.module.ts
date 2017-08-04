@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ServiceComponent} from './service.component';
+import {CreateComponent} from './create/create.component';
+import {ListComponent} from './list/list.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: 'service', component: ServiceComponent }
+        { path: 'services', component: ListComponent },
+        { path: 'services/create', component: CreateComponent },
+        { path: 'services/edit/:id', component: CreateComponent }
     ])],
     exports: [RouterModule]
 })
