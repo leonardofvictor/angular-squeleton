@@ -3,7 +3,8 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {TypeaheadMatch} from 'ngx-bootstrap/typeahead';
-import {UserService} from '../../../http_services/user.service';
+import {UserService} from '../../../users/user.service';
+
 
 @Component({
     selector: 'app-search',
@@ -17,6 +18,7 @@ export class SearchComponent {
     public dataSource: Observable<any>;
     public usersList: any[];
     public user: any;
+    public btnDisable = true;
 
     constructor(private userService: UserService) {
         this.userService.getList().then(users => this.usersList = users);
@@ -43,6 +45,7 @@ export class SearchComponent {
     }
 
     public typeaheadOnSelect(e: TypeaheadMatch): void {
+        this.btnDisable = false;
         this.userService.getDetails(e.item.id).then(user => this.user = user);
     }
 

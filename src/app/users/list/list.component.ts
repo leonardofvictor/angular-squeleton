@@ -1,9 +1,11 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {UserList} from './../user-list';
 import {User} from './../user';
-import {UserService} from '../../http_services/user.service';
+import {UserService} from '../user.service';
+import {UserDropdown} from '../user-dropdown';
+import {DomainService} from '../../http_services/domain.service';
 
 @Component({
     selector: 'app-user-list',
@@ -12,16 +14,19 @@ import {UserService} from '../../http_services/user.service';
 })
 
 export class ListComponent implements OnInit, OnDestroy {
-    group: number;
     page: number;
-    list: UserList[];
+    list: UserDropdown[];
+    url = 'users/list';
     private subscribe: any;
     baseTitle = 'Usuários';
     userlist: UserList[];
+    groups: any[];
+    @Input() user: User;
 
     selectedUser: User[];
 
     constructor(private userService: UserService,
+                private domainService: DomainService,
                 private route: ActivatedRoute) {
     }
 
@@ -31,8 +36,9 @@ export class ListComponent implements OnInit, OnDestroy {
         this.userService.getList().then(response => this.list = response);
     }
 
+
+
     ngOnInit(): void {
-        this.userlist = [];
         this.subscribe = this.route.params.subscribe(params => {
             this.page = (params.page !== 'undefined') ? params.page : 1;
             this.getList(this.page);

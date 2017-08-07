@@ -1,0 +1,37 @@
+<ng-template #nextdisabled>
+  <li class="disabled page-item"><a class="page-link">Próxima</a></li>
+</ng-template>
+<ng-template #prevdisabled>
+  <li class="disabled page-item"><a class="page-link">Anterior</a></li>
+</ng-template>
+<nav aria-label="Page navigation" class="offset-3">
+  <ul class="pagination">
+    <li *ngIf="current_page > 1" class="page-item">
+      <a class="page-link" [routerLink]="[url, 1]">Início</a>
+    </li>
+    <li *ngIf="current_page > 1; else prevdisabled" class="page-item">
+      <a class="page-link" [routerLink]="[url, (current_page - 1)]">Anterior</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" [routerLink]="[url, current_page]">
+        {{current_page}}
+      </a>
+    </li>
+    <li *ngIf="current_page+1  <= last_page" class="page-item">
+      <a class="page-link" [routerLink]="[url, current_page+1]">
+        {{current_page +1}}
+      </a>
+    </li>
+    <li *ngIf="current_page+2  <= last_page" class="page-item">
+      <a class="page-link" [routerLink]="[url, current_page+2]">
+        {{current_page +2}}
+      </a>
+    </li>
+    <li *ngIf="current_page+2 < last_page; else nextdisabled" class="page-item">
+      <a class="page-link" [routerLink]="[url, (current_page + 1)]">Próxima</a>
+    </li>
+    <li *ngIf="current_page+2 < last_page" class="page-item">
+      <a class="page-link" [routerLink]="[url, (last_page)]">Fim</a>
+    </li>
+  </ul>
+</nav>

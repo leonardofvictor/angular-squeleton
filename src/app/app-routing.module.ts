@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-    { path: 'dashboard', loadChildren: 'app/app.module#AppModule' },
+    { path: '', redirectTo: 'cadastros', pathMatch: 'full'},
+    { path: 'cadastros', loadChildren: 'app/app.module#AppModule' },
     { path: 'users', loadChildren: 'app/users/user.module#UserModule' },
 
 ];
@@ -13,4 +13,4 @@ export const routes: Routes = [
         { enableTracing: false } )],
     exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
