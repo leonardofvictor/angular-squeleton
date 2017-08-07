@@ -1,28 +1,29 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {HttpModule, JsonpModule} from '@angular/http';
+import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
-
-import {AppComponent} from './app.component';
-import {AppRoutingModule} from './app-routing.module';
-import {CoreModule} from './core/core.module';
-import {CoreComponent} from './core/core.component';
+import {HttpModule, JsonpModule} from '@angular/http';
+import {UserModule} from './users/user.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import {AppRoutingModule} from './app-routing.module';
+
+import {AppComponent} from './app.component';
+
+
 
 
 
 
 @NgModule({
     declarations: [
-        AppComponent, CoreComponent
+        AppComponent
     ],
     imports: [
-        BrowserModule,
+        CommonModule,
         FormsModule,
         HttpModule,
         JsonpModule,
-        CoreModule,
+        UserModule,
         BsDropdownModule.forRoot(),
         TypeaheadModule.forRoot(),
         AppRoutingModule

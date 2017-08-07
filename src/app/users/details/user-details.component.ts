@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import {UserService} from './../user.service';
+import {UserService} from '../../http_services/user.service';
 import {UserDetails} from './user-details';
 
 @Component({

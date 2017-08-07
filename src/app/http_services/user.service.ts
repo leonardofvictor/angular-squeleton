@@ -3,8 +3,8 @@ import {Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import {UserList} from './user-list';
-import {UserDetails} from './details/user-details';
+import {UserList} from '../users/user-list';
+import {UserDetails} from '../users/details/user-details';
 
 
 @Injectable()
@@ -14,14 +14,14 @@ export class UserService {
 
     constructor(private http: Http) { }
 
-    public getUsersByGroup(group: number, page: number): Promise<UserList[]> {
+    public getUsersByGroup(group: number, page: number): Promise<void|UserList[]> {
         return this.http.get(`${this.url}/groups/users/${group}?page=${page}`)
             .toPromise()
             .then(response => response.json().content as UserList[])
             .catch(this.handleError);
     }
 
-    public getUsers(page: number): Promise<UserList[]> {
+    public getUsers(page: number): Promise<void|UserList[]> {
         if ( page == null ) {
             page = 1;
         }
@@ -30,22 +30,22 @@ export class UserService {
             .then(response => response.json().content as UserList[])
             .catch(this.handleError);
     }
-    public getList(): Promise<UserList[]> {
+    public getList(): Promise<void|UserList[]> {
 
         return this.http.get(`${this.url}/users/dropdown`)
             .toPromise()
             .then(response => response.json().content as UserList[])
             .catch(this.handleError);
     }
-    public getDetails(id: number): Promise<UserDetails[]> {
+    public getDetails(id: number): Promise<void|UserDetails[]> {
         return this.http.get(`${this.url}/users/show/${id}`)
             .toPromise()
             .then(response => response.json().content as UserDetails[])
             .catch(this.handleError);
     }
 
-    private handleError(error: any): Promise<any> {
+    private handleError(error: any): void {
         console.log('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
+        //return Promise.reject(error.message || error);
     }
 }

@@ -9,8 +9,7 @@ import {UserRoutingModule} from './user-routing.module';
 import {UserDetailsComponent} from './details/user-details.component';
 import {FormsModule} from '@angular/forms';
 import { ListComponent } from './list/list.component';
-import {UserService} from './user.service';
-import {GroupDropdownComponent} from '../groups/group-dropdown.component';
+import {UserService} from '../http_services/user.service';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import {SearchComponent} from '../shared/dropdowns/search/search.component';
 
@@ -19,7 +18,6 @@ import {SearchComponent} from '../shared/dropdowns/search/search.component';
     declarations: [
         UserComponent,
         UserDetailsComponent,
-        GroupDropdownComponent,
         ListComponent,
         SearchComponent
     ],

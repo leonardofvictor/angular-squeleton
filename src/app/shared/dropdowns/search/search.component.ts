@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {TypeaheadMatch} from 'ngx-bootstrap/typeahead';
-import {UserService} from '../../../users/user.service';
+import {UserService} from '../../../http_services/user.service';
 
 @Component({
     selector: 'app-search',
